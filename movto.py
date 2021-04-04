@@ -7,6 +7,8 @@ from utils.a_interaction import movea
 
 odrvc = odrive.find_any(serial_number="207135A1524B") # codo and z
 odrvh = odrive.find_any(serial_number="206E3591524B") # hombro
+execfile("setup_config.py")
+
 
 L1 = 330.15 # Humero [mm]
 L2 = 338.0 # Radio-cubito [mm] 
@@ -35,7 +37,7 @@ a_cur = 0
 absolute = float(input('absolute mode? (yes, type 1. no, type 0) '))
 mult_sleep = 0
 address = 0x69 # Arduino ID 
-mova = False
+mova = True
 
 while True:
 # include if LS

@@ -6,6 +6,7 @@ from odrive.utils import *
 odrvc = odrive.find_any(serial_number="207135A1524B") # codo and z
 odrvh = odrive.find_any(serial_number="206E3591524B") # hombro
 
+exec(open("./setup_config.py").read())
 # Settings
 #odrvc.axis0.controller.config.pos_gain = 13 #saved
 #odrvc.axis0.controller.config.vel_limit = 200 #saved
@@ -107,15 +108,16 @@ while (current_state_h == 1):
 
 # straight
 # z
-offset_z_stg = -3.25 # 6.25
-odrvc.axis0.controller.move_incremental(offset_z_stg, False)
-time.sleep(5)
-# codo
-offset_c_stg = -2.6
-odrvc.axis1.controller.move_incremental(offset_c_stg, False)
-time.sleep(5)
-# hombro
-offset_h_stg = -1.75 
-odrvh.axis0.controller.move_incremental(offset_h_stg, False)
-time.sleep(5)
-
+if should_comeback:
+    offset_z_stg = -3.25 # 6.25
+    odrvc.axis0.controller.move_incremental(offset_z_stg, False)
+    time.sleep(5)
+    # codo
+    offset_c_stg = -2.6
+    odrvc.axis1.controller.move_incremental(offset_c_stg, False)
+    time.sleep(5)
+    # hombro
+    offset_h_stg = -1.75 
+    odrvh.axis0.controller.move_incremental(offset_h_stg, False)
+    time.sleep(5)
+print("fin")
