@@ -12,8 +12,17 @@ def ik(x, y, L1, L2, orientation = 'izq', verbose = False):
     max_theta_1=90.0/180.0*np.pi
     max_theta_2=135.0/180.0*np.pi
     #in_arccos = min(max((x**2 + y**2 - L1**2 - L2**2)/(2*L1*L2),-1) ,1)
-    D = (x**2 + y**2 - L1**2 - L2**2)/(2*L1*L2)
-
+    print("x = ") 
+    print(x)
+    print("y = ") 
+    print(y)
+    print("L1 = ") 
+    print(L1)
+    print("L2 = ") 
+    print(L2)
+         
+    D =min(max((x**2 + y**2 - L1**2 - L2**2)/(2*L1*L2),-1),1)
+    print(D)
             
     if orientation == 'izq':
         #theta_2 = np.arccos(in_arccos)
