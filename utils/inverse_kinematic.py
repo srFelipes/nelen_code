@@ -39,7 +39,7 @@ def ik(x, y, L1, L2, orientation = 'izq', verbose = False):
         else:
             theta_1 = np.arctan(y/x) + np.arctan(L2*np.sin(theta_2)/(L1 + L2*np.cos(theta_2))) 
     else:
-        print('Orientation mode error. It should be equal to: str(der) or str(izq)')
+        print('Orientation mode error. It should be equal to: str(der) or str_ or else (izq)')
     if verbose == True:
         print(f'Targets: x = {x}, y = {y}')
         print(f'Theta_1 = {theta_1}, Theta_2 = {theta_2}')
