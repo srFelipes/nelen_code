@@ -42,19 +42,19 @@ def calibrate(axis):
 
 # straight
 # z
-if should_comeback:
-    offset_z_stg = -3.25 # 6.25
-    odrvc.axis0.controller.move_incremental(offset_z_stg, False)
-    time.sleep(5)
-    # codo
-    offset_c_stg = -2.6
-    odrvc.axis1.controller.move_incremental(offset_c_stg, False)
-    time.sleep(5)
-    # hombro
-    offset_h_stg = -1.75 
-    odrvh.axis0.controller.move_incremental(offset_h_stg, False)
-    time.sleep(5)
-print("fin")
+# if should_comeback:
+#     offset_z_stg = -3.25 # 6.25
+#     odrvc.axis0.controller.move_incremental(offset_z_stg, False)
+#     time.sleep(5)
+#     # codo
+#     offset_c_stg = -2.6
+#     odrvc.axis1.controller.move_incremental(offset_c_stg, False)
+#     time.sleep(5)
+#     # hombro
+#     offset_h_stg = -1.75 
+#     odrvh.axis0.controller.move_incremental(offset_h_stg, False)
+#     time.sleep(5)
+
 
 if __name__=='__init__':
     ## Hombro
@@ -73,4 +73,5 @@ if __name__=='__init__':
     print('Working on codo')
     calibrate(odrvc.axis1)
     print('hombro calibrated')
+    print("fin")
 
