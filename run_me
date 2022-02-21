@@ -6,7 +6,7 @@ do
     echo "Entering mode $mode"
     if [ $mode == 0 ]
     then
-        ./homing.py
+        python3 ./homing.py
     elif [ $mode == test ]
     then
         ./test.py
