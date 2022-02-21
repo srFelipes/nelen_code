@@ -1,4 +1,4 @@
-#!/home/rosconcoco/nelen/bin/python
+
 import odrive
 from odrive.enums import * 
 from odrive.utils import *
