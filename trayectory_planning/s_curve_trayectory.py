@@ -44,7 +44,7 @@ def trayectoria(distance,frec=500.0,A_max = 15.0,V_max = 9.9484,J_max = 450.0 , 
         False_j_max=Ts*S_max/raiz_3
 
         #create time list for one of the eight cases and calculate once, the others are just flips and negatives
-        time=np.linspace(1.0/frec,Ts,frec*Ts)   #there might be a mismatch between the size of this and the total time gotta check what to do
+        time=np.linspace(1.0/frec,Ts,int(frec*Ts))   #there might be a mismatch between the size of this and the total time gotta check what to do
         #now there is no mismatch since totaltime is calculated with len of jerk, it could be possible that final d is not the same
         #make sure that the last value of pos is d
         up=[False_j_max/(1.0+np.exp(-a*(1.0/(1.0-t/Ts)-Ts/t))) for t in time]
@@ -83,7 +83,7 @@ def trayectoria(distance,frec=500.0,A_max = 15.0,V_max = 9.9484,J_max = 450.0 , 
         mid=[0.0 for t in timeV]
 
         #create time list for one of the eight cases and calculate once, the others are just flips and negatives
-        time=np.linspace(1.0/frec,Ts,frec*Ts)
+        time=np.linspace(1.0/frec,Ts,int(frec*Ts))
         up=[False_j_max/(1.0+np.exp(-a*(1.0/(1.0-t/Ts)-Ts/t))) for t in time]
         down=[r for r in reversed(up)]
         up_minus=[u*-1.0 for u in down]
@@ -126,7 +126,7 @@ def trayectoria(distance,frec=500.0,A_max = 15.0,V_max = 9.9484,J_max = 450.0 , 
             timeA=np.linspace(1.0/frec,Ta,Ta*frec)
             zero_jerk=[0.0 for t in timeA]
             #create time list for one of the eight cases and calculate once, the others are just flips and negatives
-            time=np.linspace(1.0/frec,Ts,frec*Ts)
+            time=np.linspace(1.0/frec,Ts,int(frec*Ts))
             up=[False_j_max/(1.0+np.exp(-a*(1.0/(1.0-t/Ts)-Ts/t))) for t in time]
             down=[r for r in reversed(up)]
             up_minus=[u*-1.0 for u in down]
@@ -165,7 +165,7 @@ def trayectoria(distance,frec=500.0,A_max = 15.0,V_max = 9.9484,J_max = 450.0 , 
             # print(a)
 
             #create time list for one of the eight cases and calculate once, the others are just flips and negatives
-            time=np.linspace(1.0/frec,Ts,frec*Ts)
+            time=np.linspace(1.0/frec,Ts,int(frec*Ts))
             up=[False_j_max/(1.0+np.exp(-a*(1.0/(1.0-t/Ts)-Ts/t))) for t in time]
             down=[r for r in reversed(up)]
             up_minus=[u*-1.0 for u in down]
@@ -204,7 +204,7 @@ def trayectoria(distance,frec=500.0,A_max = 15.0,V_max = 9.9484,J_max = 450.0 , 
             jerkNegative=[-J_max for t in timeJ]
 
             #create time list for one of the eight cases and calculate once, the others are just flips and negatives
-            time=np.linspace(1.0/frec,Ts,frec*Ts)
+            time=np.linspace(1.0/frec,Ts,int(frec*Ts))
             up=[J_max/(1.0+np.exp(-a*(1.0/(1.0-t/Ts)-Ts/t))) for t in time]
             down=[r for r in reversed(up)]
             up_minus=[u*-1.0 for u in down]
@@ -241,7 +241,7 @@ def trayectoria(distance,frec=500.0,A_max = 15.0,V_max = 9.9484,J_max = 450.0 , 
             jerkNegative=[-J_max for t in timeJ]
 
             #create time list for one of the eight cases and calculate once, the others are just flips and negatives
-            time=np.linspace(1.0/frec,Ts,frec*Ts)
+            time=np.linspace(1.0/frec,Ts,int(frec*Ts))
             up=[J_max/(1.0+np.exp(-a*(1.0/(1.0-t/Ts)-Ts/t))) for t in time]
             down=[r for r in reversed(up)]
             up_minus=[u*-1.0 for u in down]
@@ -282,7 +282,7 @@ def trayectoria(distance,frec=500.0,A_max = 15.0,V_max = 9.9484,J_max = 450.0 , 
                 zero_jerk=[0.0 for t in timeA]
 
                 #create time list for one of the eight cases and calculate once, the others are just flips and negatives
-                time=np.linspace(1.0/frec,Ts,frec*Ts)
+                time=np.linspace(1.0/frec,Ts,int(frec*Ts))
                 up=[J_max/(1.0+np.exp(-a*(1.0/(1.0-t/Ts)-Ts/t))) for t in time]
                 down=[r for r in reversed(up)]
                 up_minus=[u*-1.0 for u in down]
@@ -325,7 +325,7 @@ def trayectoria(distance,frec=500.0,A_max = 15.0,V_max = 9.9484,J_max = 450.0 , 
                 zero_jerk=[0.0 for t in timeA]
 
                 #create time list for one of the eight cases and calculate once, the others are just flips and negatives
-                time=np.linspace(1.0/frec,Ts,frec*Ts)
+                time=np.linspace(1.0/frec,Ts,int(frec*Ts))
                 up=[J_max/(1.0+np.exp(-a*(1.0/(1.0-t/Ts)-Ts/t))) for t in time]
                 down=[r for r in reversed(up)]
                 up_minus=[u*-1.0 for u in down]
@@ -495,7 +495,7 @@ def curvalarga():
 
 
 def stretch_trayectory(data,new_len):
-    new_data=range(new_len)
+    new_data=list(range(new_len))
     first=True
     k=0
     times=np.linspace(0.0,len(data)-1.0,new_len)
@@ -562,3 +562,5 @@ def double_plot(curves):
     plt.xlabel('tiempo [s]')
     plt.grid()
     plt.show()
+if __name__=='__main__':
+    curvalarga()
